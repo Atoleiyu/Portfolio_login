@@ -45,40 +45,7 @@ if ($_POST['mail'] && $_POST['pass']) {
   <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 
   <link rel="stylesheet" href="css/style.css">
-
-  <style>
-    .content {
-      margin: 15px 0;
-      padding: 40px;
-      border-color: silver;
-    }
-
-    h2  {
-      color: rgb(245, 110, 130);
-    }
-
-    .head p {
-      font-weight: bold;
-    }
-
-    .head {
-      text-align: center;
-    }
-
-    .mail {
-      margin-top: 40px;
-    }
-
-    .btn-warning {
-      margin-top: 18px;
-    }
-
-    .bottom {
-      border: 0.5px solid silver;
-      margin: 15px 0;
-    }
-
-  </style>
+  <link rel="stylesheet" href="css/login.css">
 
 </head>
 <body>
@@ -86,10 +53,10 @@ if ($_POST['mail'] && $_POST['pass']) {
     <header>
       <div class="row">
         <div class="col-sm-6">
-          <h1>Wellcome! ANACOM</h1>
+          <h1 style="margin-top: 8px">Wellcome! ANACOM</h1>
         </div>
         <div class="col-sm-6 align-right">
-          <a href="">HOMEへ戻る</a>
+          <a class="btn btn-success " href="">店舗管理画面へ</a>
         </div>
       </div>
     </header>
@@ -97,20 +64,23 @@ if ($_POST['mail'] && $_POST['pass']) {
 
   <hr>
 
-  <!-- 必要事項記入欄 -->
+  <!-- ログイン画面 -->
   <div class="row justify-content-center">
     <form action="" method="post" class="row">
       <div class="content col-sm-12 border rounded">
+
+        <!-- ログイン説明文 -->
         <div class="head">
           <h2>Welcome ANACOM</h2>
           <p>ログイン用のIDとパスワード入力してください</p>
         </div>
 
+        <!-- メールアドレス入力欄 -->
         <div class="form-group mail">
           <label>メールアドレス</label>
-          <input type="mail" name="mail" class="form-control">
+          <input type="mail" name="mail" class="form-control" value="<?php echo (htmlspecialchars($_POST['mail'], ENT_QUOTES)); ?>">
         </div>
-
+        <!-- パスワード入力欄 -->
         <div class="form-group pass">
           <label>パスワード</label>
           <input type="password" name="pass" class="form-control">
