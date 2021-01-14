@@ -2,6 +2,19 @@
 session_start();
 require('dbconnect.php');
 
+if ($_POST['mail'] && $_POST['pass']) {
+
+  $sql = "SELECT *  FROM account  WHERE mail = :mail , pass = :pass";
+  $stt = $db->prepare($sql);
+  $stt->bindParam(':mail', $_POST['mail']);
+  $stt->bindParam(':pass', $_POST['pass']);
+  $stt->execute();
+  $stt->fetch();
+
+  $_SESSION = $stt;
+  header('Location: index.php');
+  exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -91,7 +104,7 @@ require('dbconnect.php');
         </div>
 
 
-        <button type="submit" name="action" class="btn btn-warning col-sm-12" href="login.php">ログイン</button>
+        <button type="submit" class="btn btn-warning col-sm-12">ログイン</button>
 
         <hr class="bottom">
 
