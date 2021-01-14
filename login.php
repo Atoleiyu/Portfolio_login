@@ -1,19 +1,32 @@
 <?php
+// セッション開始
 session_start();
+// DB読み込み
 require('dbconnect.php');
 
+// mail&pass入力確認
 if ($_POST['mail'] && $_POST['pass']) {
 
-  $sql = "SELECT *  FROM account  WHERE mail = :mail , pass = :pass";
-  $stt = $db->prepare($sql);
-  $stt->bindParam(':mail', $_POST['mail']);
-  $stt->bindParam(':pass', $_POST['pass']);
-  $stt->execute();
-  $stt->fetch();
+  // accountテーブル取得
+  $sql = 'SELECT * FROM account WHERE mail=? AND pass=?';
+  $stmt = $db->prepare($sql);
+  $stmt->execute(array($_POST['mail'],$_POST['pass']));
+  $result = $stmt->fetch();
 
-  $_SESSION = $stt;
-  header('Location: index.php');
-  exit();
+  // members&addressテーブルを内部結合して取得
+  if ($result) {
+
+    $members = $db->prepare('SELECT * FROM account JOIN members JOIN address ON account.id = members.id And account.id = address.id WHERE mail=? AND pass=?');
+    $members->execute(array($_POST['mail'],$_POST['pass']));
+    $member = $members->fetch();
+
+    // 各テーブル取得完了後、情報確認画面へ
+    if ($member) {
+      $_SESSION = $member;
+      header('Location: index.php');
+      exit();
+    }
+  }
 }
 ?>
 
@@ -104,12 +117,12 @@ if ($_POST['mail'] && $_POST['pass']) {
         </div>
 
 
-        <button type="submit" class="btn btn-warning col-sm-12">ログイン</button>
+        <button type="submit" name="login" class="btn btn-warning col-sm-12">ログイン</button>
 
         <hr class="bottom">
 
         <a href="join/index.php" class="btn btn-secondary col-sm-12">新規会員登録はこちら</a>
-
+        <?php echo $result['mail']; ?>
       </div>
     </form>
   </div>
