@@ -1,109 +1,7 @@
 <?php
 session_start();
 require('../dbconnect.php');
-
-// エラーチェック：配列が空の場合は$errorにblankを渡す
-if (!empty($_POST)) {
-  // 苗字が空欄の場合
-  if ($_POST['lastName'] === '') {
-    $error['lastName'] = 'blank';
-  }
-  // 名前が空欄の場合
-  if ($_POST['firstName'] === '') {
-    $error['firstName'] = 'blank';
-  }
-  // セイが空欄の場合
-  if ($_POST['lastFurigana'] === '') {
-    $error['lastFurigana'] = 'blank';
-  }
-  // メイが空欄の場合
-  if ($_POST['firstFurigana'] === '') {
-    $error['firstFurigana'] = 'blank';
-  }
-  // 郵便番号が空欄の場合
-  if ($_POST['zip1'] === '') {
-    $error['zip1'] = 'blank';
-  }
-  if ($_POST['zip2'] === '') {
-    $error['zip2'] = 'blank';
-  }
-  // 都道府県が空欄の場合
-  if ($_POST['address1'] === '') {
-    $error['address1'] = 'blank';
-  }
-  // 市区町村が空欄の場合
-  if ($_POST['address2'] === '') {
-    $error['address2'] = 'blank';
-  }
-  // 番地・ビル名が空欄の場合
-  if ($_POST['address3'] === '') {
-    $error['address3'] = 'blank';
-  }
-  // 電話番号が空欄の場合
-  if ($_POST['tel'] === '') {
-    $error['tel'] = 'blank';
-  }
-  // メールアドレスが空欄の場合
-  if ($_POST['mail_input'] === '') {
-    $error['mail_input'] = 'blank';
-  }
-  if ($_POST['mail_check'] === '') {
-    $error['mail_check'] = 'blank';
-  }
-  // メールアドレスが一致しない場合
-  if ($_POST['mail_input'] !== $_POST['mail_check']) {
-    $error['mail'] = 'blank';
-  }
-  // パスワードが空欄の場合
-  if ($_POST['pass_input'] === '') {
-    $error['pass_input'] = 'blank';
-  }
-  if ($_POST['pass_check'] === '') {
-    $error['pass_check'] = 'blank';
-  }
-  // パスワードが一致しない場合
-  if ($_POST['pass_input'] !== $_POST['pass_check']) {
-    $error['pass'] = 'blank';
-  }
-  // 生年月日が空欄の場合
-  if ($_POST['year'] === '') {
-    $error['year'] = 'blank';
-  }
-  if ($_POST['month'] === '') {
-    $error['month'] = 'blank';
-  }
-  if ($_POST['day'] === '') {
-    $error['day'] = 'blank';
-  }
-  // 性別が空欄の場合
-  if ($_POST['gender'] == '') {
-    $error['gender'] = 'blank';
-  }
-}
-
-if (empty($error) && !empty($_POST)) {
-  $_POST['name'] = $_POST['lastName'] .' '. $_POST['firstName'];
-  $_POST['furigana'] = $_POST['lastFurigana'] .' '. $_POST['firstFurigana'];
-  $_POST['bday'] = $_POST['year'] . '-' . $_POST['month'] . '-' . $_POST['day'];
-
-  if ($_POST['mail_input'] === $_POST['mail_check']) {
-    $_POST['mail'] = $_POST['mail_check'];
-  }
-
-  if ($_POST['pass_input'] === $_POST['pass_check']) {
-    $_POST['pass'] = $_POST['pass_check'];
-  }
-
-  $_SESSION['join'] = $_POST;
-
-  header('Location: check.php');
-  exit();
-}
-
-// check.phpから戻って来た時、記入欄を維持する処理
-  if($_REQUEST['action'] === 'rewrite' && isset($_SESSION['join'])) {
-    $_POST = $_SESSION['join'];
-  }
+require('../php/signup_bi.php');
 ?>
 
 <!DOCTYPE html>
@@ -128,6 +26,12 @@ if (empty($error) && !empty($_POST)) {
 
   <link rel="stylesheet" href="../css/style.css">
 
+  <style>
+    label .error {
+      color: red;
+      margin-left: 10px;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -160,7 +64,7 @@ if (empty($error) && !empty($_POST)) {
           <label for="name">お名前
             <!-- エラー文 -->
             <?php if ($error['lastName'] || $error['firstName']): ?>
-              <label style="color: red; margin-left: 10px">名前を入力してください</label>
+              <label class="error">名前を入力してください</label>
             <?php endif; ?>
           </label>
           <div class="form-inline inputName">
@@ -174,7 +78,7 @@ if (empty($error) && !empty($_POST)) {
           <label for="name">フリガナ
             <!-- エラー文 -->
             <?php if ($error['lastFurigana'] || $error['firstFurigana']): ?>
-              <label style="color: red; margin-left: 10px">フリガナを入力してください</label>
+              <label class="error">フリガナを入力してください</label>
             <?php endif; ?>
           </label>
           <div class="form-inline inputName">
@@ -191,7 +95,7 @@ if (empty($error) && !empty($_POST)) {
           <label>郵便番号
             <!-- エラー文 -->
             <?php if ($error['zip1'] || $error['zip2']): ?>
-              <label style="color: red; margin-left: 10px">郵便番号を入力してください</label>
+              <label class="error">郵便番号を入力してください</label>
             <?php endif; ?>
           </label>
           <div class="form-inline">
@@ -206,7 +110,7 @@ if (empty($error) && !empty($_POST)) {
             <label style="margin-top: 5px;">都道府県
               <!-- エラー文 -->
               <?php if ($error['address1']): ?>
-                <label style="color: red; margin-left: 10px">都道府県を入力してください</label>
+                <label class="error">都道府県を入力してください</label>
               <?php endif; ?>
             </label>
             <input type="text" name="address1" class="form-control" size="20" value="<?php print(htmlspecialchars($_POST['address1'], ENT_QUOTES)); ?>" placeholder="例）東京都">
@@ -214,7 +118,7 @@ if (empty($error) && !empty($_POST)) {
             <label style="margin-top: 5px;">市区町村
               <!-- エラー文 -->
               <?php if ($error['address2']): ?>
-                <label style="color: red; margin-left: 10px">市区町村を入力してください</label>
+                <label class="error">市区町村を入力してください</label>
               <?php endif; ?>
             </label>
             <input type="text" name="address2" class="form-control" size="40" value="<?php print(htmlspecialchars($_POST['address2'], ENT_QUOTES)); ?>" placeholder="例）青梅市千ヶ瀬町">
@@ -222,7 +126,7 @@ if (empty($error) && !empty($_POST)) {
             <label style="margin-top: 5px;">番地・ビル名
               <!-- エラー文 -->
               <?php if ($error['address3']): ?>
-                <label style="color: red; margin-left: 10px">番地・ビル名を入力してください</label>
+                <label class="error">番地・ビル名を入力してください</label>
               <?php endif; ?>
             </label>
             <input type="text" name="address3" class="form-control" size="40" value="<?php print(htmlspecialchars($_POST['address3'], ENT_QUOTES)); ?>" placeholder="例）3-397-2">
@@ -236,7 +140,7 @@ if (empty($error) && !empty($_POST)) {
           <label>電話番号 *ハイフン抜き
             <!-- エラー文 -->
             <?php if ($error['tel']): ?>
-                <label style="color: red; margin-left: 10px">電話番号を入力してください</label>
+                <label class="error">電話番号を入力してください</label>
               <?php endif; ?>
           </label>
           <div class="form-inline inputTel">
@@ -251,11 +155,18 @@ if (empty($error) && !empty($_POST)) {
         <div class="form-group">
           <div>
             <label>メールアドレス
+              <!-- エラー文 -->
+              <!-- 空欄 -->
               <?php if ($error['mail_input'] || $error['mail_check']): ?>
-                <label style="color: red; margin-left: 10px">メールアドレスを入力してください</label>
+                <label class="error">メールアドレスを入力してください</label>
               <?php endif; ?>
-              <?php if ($error['mail']): ?>
-                <label style="color: red; margin-left: 10px">確認用のメールアドレスが一致しません</label>
+              <!-- 不一致 -->
+              <?php if ($error['mail'] === 'blank'): ?>
+                <label class="error">確認用のメールアドレスが一致しません</label>
+              <?php endif; ?>
+              <!-- 使用済み -->
+              <?php if ($error['mail'] === 'duplicate'): ?>
+                <label class="error">指定されたアドレスは既に使用されています</label>
               <?php endif; ?>
             </label>
             <div style="margin-right: 50%">
@@ -268,11 +179,14 @@ if (empty($error) && !empty($_POST)) {
         <!-- パスワード -->
         <div class="form-group" style="border-bottom-color: red">
           <label>パスワード
+          <!-- エラー文 -->
+          <!-- 空欄 -->
           <?php if ($error['pass_input'] || $error['pass_check']): ?>
-            <label style="color: red; margin-left: 10px">パスワードを入力してください</label>
+            <label class="error">パスワードを入力してください</label>
           <?php endif; ?>
+          <!-- 不一致 -->
           <?php if ($error['pass']): ?>
-            <label style="color: red; margin-left: 10px">確認用のパスワードが一致しません</label>
+            <label class="error">確認用のパスワードが一致しません</label>
           <?php endif; ?>
           </label>
           <div style="margin-right: 50%">
@@ -287,31 +201,35 @@ if (empty($error) && !empty($_POST)) {
         <div class="form-group">
           <label for="name">生年月日
           <!-- エラー文 -->
-          <?php if ($error['year'] || $error['month'] || $error['day']): ?>
-            <label style="color: red; margin-left: 10px">生年月日を選択してください</label>
+          <?php if ($error['year'] || $error['month'] || $error['day'] === 'blank'): ?>
+            <label class="error">生年月日を選択してください</label>
           <?php endif; ?>
           </label>
           <div class="form-inline inputBday">
 
             <!-- 年入力欄 -->
             <select type="text" id="year" name="year" class="form-control" placeholder="年">
-              <option value="">----</option>
+              <option value="disabled" style='display:none;'>----</option>
               <?php
                 $now_year = date(Y);
+                if (isset($_POST['year'])) {
+                  echo ('<option value="'.$_POST['year'].'" style="display:none" selected>'.$_POST['year'].'</option>');
+                }
                 for ($year = $now_year; $year >= 1930; $year--) {
                   if ($year < 10) { $year =  sprintf('%02d', $year); }
-                  // if ($_POST['year'] === $year) {
-                  //   $selected =  'selected';
-                  // }
-                  print ('<option value="'.$year.'" '.$selected.'>' . $year . '</option>');
+
+                  print ('<option value="'.$year.'">' . $year . '</option>');
                 }
               ?>
             </select>
             &nbsp;/&nbsp;
             <!-- 月入力欄 -->
             <select type="text" id="month" name="month" class="form-control" placeholder="年">
-              <option value="">--</option>
+              <option value="disabled" style='display:none;'>--</option>
               <?php
+              if (isset($_POST['month'])) {
+                echo ('<option value="'.$_POST['month'].'" style="display:none" selected>'.$_POST['month'].'</option>');
+              }
                 for ($month = 1; $month <= 12; $month++) {
                   if ($month < 10) {
                     $month =  sprintf('%02d', $month);
@@ -323,8 +241,11 @@ if (empty($error) && !empty($_POST)) {
             &nbsp;/&nbsp;
             <!-- 日入力欄 -->
             <select id="day" name="day" class="form-control" placeholder="年">
-              <option value="">--</option>
+              <option value="disabled" style='display:none'>--</option>
               <?php
+                if (isset($_POST['day'])) {
+                  echo ('<option value="'.$_POST['day'].'" style="display:none" selected>'.$_POST['day'].'</option>');
+                }
                 for ($day = 1; $day <= 31; $day++) {
                   if ($day < 10) {
                     $day =  sprintf('%02d', $day);
@@ -343,7 +264,7 @@ if (empty($error) && !empty($_POST)) {
           <label>性別
             <!-- エラー文 -->
             <?php if ($error['gender']): ?>
-              <label style="color: red; margin-left: 10px">性別を選択してください</label>
+              <label class="error">性別を選択してください</label>
             <?php endif; ?>
           </label>
           <br>

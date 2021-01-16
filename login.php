@@ -91,7 +91,7 @@ if ($_POST['mail'] && $_POST['pass']) {
 
         <hr class="bottom">
 
-        <a href="join/index.php" class="btn btn-secondary col-sm-12">新規会員登録はこちら</a>
+        <a href="join/signup.php" class="btn btn-secondary col-sm-12">新規会員登録はこちら</a>
         <?php echo $result['mail']; ?>
       </div>
     </form>
