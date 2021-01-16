@@ -2,6 +2,7 @@
 session_start();
 require('../dbconnect.php');
 
+
 // エラーチェック：配列が空の場合は$errorにblankを渡す
 if (!empty($_POST)) {
   // 苗字が空欄の場合
@@ -54,6 +55,7 @@ if (!empty($_POST)) {
   if ($_POST['mail_input'] !== $_POST['mail_check']) {
     $error['mail'] = 'blank';
   }
+
   // パスワードが空欄の場合
   if ($_POST['pass_input'] === '') {
     $error['pass_input'] = 'blank';
@@ -82,22 +84,34 @@ if (!empty($_POST)) {
 }
 
 if (empty($error) && !empty($_POST)) {
-  $_POST['name'] = $_POST['lastName'] .' '. $_POST['firstName'];
-  $_POST['furigana'] = $_POST['lastFurigana'] .' '. $_POST['firstFurigana'];
-  $_POST['bday'] = $_POST['year'] . '-' . $_POST['month'] . '-' . $_POST['day'];
+  $sql = "SELECT * FROM account WHERE mail=?";
+  $mailcheck = $dv->prepare($sql);
+  $mailcheck->execute(array($_POST['mail']));
+  $result = $mailcheck->fetch();
 
-  if ($_POST['mail_input'] === $_POST['mail_check']) {
-    $_POST['mail'] = $_POST['mail_check'];
+  if ($result) {
+    $error['mail'] = 'blank2';
+    header('Location: check.php');
   }
 
-  if ($_POST['pass_input'] === $_POST['pass_check']) {
-    $_POST['pass'] = $_POST['pass_check'];
+  if (empty($error)) {
+    $_POST['name'] = $_POST['lastName'] .' '. $_POST['firstName'];
+    $_POST['furigana'] = $_POST['lastFurigana'] .' '. $_POST['firstFurigana'];
+    $_POST['bday'] = $_POST['year'] . '-' . $_POST['month'] . '-' . $_POST['day'];
+
+    if ($_POST['mail_input'] === $_POST['mail_check']) {
+      $_POST['mail'] = $_POST['mail_check'];
+    }
+
+    if ($_POST['pass_input'] === $_POST['pass_check']) {
+      $_POST['pass'] = $_POST['pass_check'];
+    }
+
+      $_SESSION['join'] = $_POST;
+
+      header('Location: check.php');
+      exit();
   }
-
-  $_SESSION['join'] = $_POST;
-
-  header('Location: check.php');
-  exit();
 }
 
 // check.phpから戻って来た時、記入欄を維持する処理
@@ -256,6 +270,9 @@ if (empty($error) && !empty($_POST)) {
               <?php endif; ?>
               <?php if ($error['mail']): ?>
                 <label style="color: red; margin-left: 10px">確認用のメールアドレスが一致しません</label>
+              <?php endif; ?>
+              <?php if ($error['mail'] === 'blank2'): ?>
+                <label style="color: red; margin-left: 10px">指定されたメールアドレスは使用されています</label>
               <?php endif; ?>
             </label>
             <div style="margin-right: 50%">

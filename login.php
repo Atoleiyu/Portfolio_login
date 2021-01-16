@@ -4,6 +4,18 @@ session_start();
 // DB読み込み
 require('dbconnect.php');
 
+// 空欄エラーチェック
+if ($_POST) {
+  // メールアドレス
+  if ($_POST['mail'] === "") {
+    $error['mail'] = 'blank';
+  }
+  // パスワード
+  if ($_POST['pass'] === "") {
+    $error['pass'] = 'blank';
+  }
+}
+
 // mail&pass入力確認
 if ($_POST['mail'] && $_POST['pass']) {
 
@@ -26,7 +38,7 @@ if ($_POST['mail'] && $_POST['pass']) {
       header('Location: index.php');
       exit();
     }
-  }
+  } $error['account'] = 'blank';
 }
 ?>
 
@@ -77,12 +89,28 @@ if ($_POST['mail'] && $_POST['pass']) {
 
         <!-- メールアドレス入力欄 -->
         <div class="form-group mail">
-          <label>メールアドレス</label>
+          <label>ID (メールアドレス)
+            <!-- エラー文 -->
+            <!-- 空欄時 -->
+            <?php if ($error['mail']): ?>
+              <label class="error">* メールアドレスを入力してください</label>
+            <?php endif; ?>
+            <!-- IDとPWが不一致 -->
+            <?php if ($error['account']): ?>
+              <label class="error">* IDとパスワードが一致しません</label>
+            <?php endif; ?>
+          </label>
           <input type="mail" name="mail" class="form-control" value="<?php echo (htmlspecialchars($_POST['mail'], ENT_QUOTES)); ?>">
         </div>
         <!-- パスワード入力欄 -->
         <div class="form-group pass">
-          <label>パスワード</label>
+          <label>パスワード
+            <!-- エラー文 -->
+            <!-- 空欄時 -->
+            <?php if ($error['pass']): ?>
+              <label class="error">* パスワードを入力してください</label>
+            <?php endif; ?>
+          </label>
           <input type="password" name="pass" class="form-control">
         </div>
 
