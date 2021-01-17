@@ -65,7 +65,7 @@ if ($_POST['mail'] && $_POST['pass']) {
     <header>
       <div class="row">
         <div class="col-sm-6">
-          <h1 style="margin-top: 8px">Wellcome! ANACOM</h1>
+          <h1>Wellcome! ANACOM</h1>
         </div>
         <div class="col-sm-6 align-right">
           <a class="btn btn-success " href="">店舗管理画面へ</a>
@@ -119,7 +119,7 @@ if ($_POST['mail'] && $_POST['pass']) {
 
         <hr class="bottom">
 
-        <a href="join/index.php" class="btn btn-secondary col-sm-12">新規会員登録はこちら</a>
+        <a href="join/signup.php" class="btn btn-secondary col-sm-12">新規会員登録はこちら</a>
         <?php echo $result['mail']; ?>
       </div>
     </form>

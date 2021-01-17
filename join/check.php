@@ -32,7 +32,7 @@ if ($_POST) {
     $_SESSION['join']['address2'],
     $_SESSION['join']['address3']
   ));
-  
+
   $members = $db->prepare('INSERT INTO account SET tel=?, mail=?, pass=?');
     $members->execute(array(
     // $_SESSION['join']['~array~'] = 二次元配列	配列が二段階になったもの
@@ -182,7 +182,7 @@ if ($_POST) {
         <hr>
 
         <div>
-          <a type="submit" class="btn btn-warning" href="index.php?action=rewrite">書き直す</a>
+          <a type="submit" class="btn btn-warning" href="signup.php?action=rewrite">書き直す</a>
           /
           <button type="submit" name="action" class="btn btn-primary">登録する</button>
         </div>

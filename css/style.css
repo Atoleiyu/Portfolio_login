@@ -1,5 +1,14 @@
 header {
+  margin: 15px 0;
   color: rgb(245, 110, 130);
+}
+
+header h1 {
+  margin-top: 8px;
+}
+
+header a {
+  font-size: 0.8em;
 }
 
 hr {
