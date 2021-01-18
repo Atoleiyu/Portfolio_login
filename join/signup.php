@@ -47,7 +47,7 @@ require('../php/signup_bi.php');
   <!-- 必要事項記入欄 -->
   <div class="row col-sm-12 justify-content-center">
     <form action="" method="post" class="row">
-      <div class="col-sm-12 ">
+      <div class="col-sm-12">
         <p>こちらでは、ANCOMの会員登録が行えます。<br>必要事項を以下のフォームに入力してください。</p>
 
         <hr>
@@ -281,22 +281,20 @@ require('../php/signup_bi.php');
             <?php endif; ?>
           </label>
           <br>
-          <div class="form-check-inline">
-            <div>
-              <!-- 男性 -->
-              <input type="radio" name="gender" value="男性" <?php if ($_POST['gender'] === '男性') { echo htmlspecialchars('checked',ENT_QUOTES); } ?>>
-              <label class="form-check-label">男</label>
-            </div>
-            <div>
-              <!-- 女性 -->
-              <input class="form-check-inline" type="radio" name="gender" value="女性"  <?php if ($_POST['gender'] === '女性') { echo htmlspecialchars('checked', ENT_QUOTES); } ?>>
-              <label class="form-check-label">女</label>
-            </div>
-            <!-- その他 -->
-            <div>
-              <input class="form-check-inline" type="radio" name="gender" value="その他" <?php if ($_POST['gender'] === 'その他') { echo htmlspecialchars('checked', ENT_QUOTES); } ?>>
-              <label class="form-check-label">その他</label>
-            </div>
+          <div class="form-check-inline checkGender">
+            <!-- 男性 -->
+            <input type="radio" name="gender" value="男性" <?php if ($_POST['gender'] === '男性') { echo htmlspecialchars('checked',ENT_QUOTES); } ?>>
+            <label class="form-check-label">&nbsp;男</label>
+          </div>
+          <div class="form-check-inline checkGender">
+            <!-- 女性 -->
+            <input type="radio" name="gender" value="女性"  <?php if ($_POST['gender'] === '女性') { echo htmlspecialchars('checked', ENT_QUOTES); } ?>>
+            <label class="form-check-label">&nbsp;女</label>
+          </div>
+          <!-- その他 -->
+          <div class="form-check-inline checkGender">
+            <input type="radio" name="gender" value="その他" <?php if ($_POST['gender'] === 'その他') { echo htmlspecialchars('checked', ENT_QUOTES); } ?>>
+            <label class="form-check-label">&nbsp;その他</label>
           </div>
         </div>
 
