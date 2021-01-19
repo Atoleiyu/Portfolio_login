@@ -22,38 +22,36 @@ if (isset($_POST['exit'])) {
   <!-- ajaxzip3 郵便番号検索用 -->
   <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 
-
+  <style> footer {margin-bottom: 16px} </style>
+  
 </head>
 <body>
-  <div id="wrap" class="header container">
-    <header class="row">
-      <h1 class="col-sm-6">Wellcome! ANACOM</h1>
-      <div class="col-sm-6 align-right">
-        <a class="btn btn-success " href="../login.php">ログイン画面へ</a>
+  <header class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1>Wellcome! ANACOM</h1>
       </div>
-    </header>
-  </div>
+    </div>
+  </header>
 
   <hr>
 
   <div clsss="container">
-    <div class="row align-items-center justify-content-center">
-      <div class="col-sm-auto">
-        <div>
-          <h2>登録完了</h2>
-        </div>
-        <a class="btn btn-success " href="../login.php">ログイン画面へ</a>
+    <div class="row">
+      <div class="mx-auto">
+        <h3>登録完了</h3>
+        <a href="../login.php">ログイン画面へ</a>
       </div>
     </div>
   </div>
 
   <hr>
 
-  <div class="container">
-    <footer clss0="row">
-      <p>&copy; ANACOM</p>
-    </footer>
-  </div>
+  <footer class="container">
+    <div class="row">
+      <div>&emsp;&copy; ALL NATIONS ART COMMUNITY</div>
+    </div>
+  </footer>
 
   <!-- bootstrap4 jquery JavaScript -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

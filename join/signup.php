@@ -22,33 +22,27 @@ require('../php/signup_bi.php');
   <link rel="stylesheet" href="../css/signup.css">
 
   <style>
-    label .error {
-      color: red;
-      margin-left: 10px;
-    }
+    label .error {color: red; margin-left: 10px}
+    footer {margin-bottom: 16px}
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="row">
-        <div class="col-sm-6">
-          <h1>Wellcome ANACOM</h1>
-        </div>
-        <div class="col-sm-6 align-right">
-        <a class="btn btn-success " href="../login.php">ログイン画面へ</a>
-        </div>
+  <header class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1>Wellcome! ANACOM</h1>
       </div>
-    </header>
-  </div>
+    </div>
+  </header>
 
   <hr>
 
   <!-- 必要事項記入欄 -->
-  <div class="row col-sm-12 justify-content-center">
+  <div class="container justify-content-center">
     <form action="" method="post" class="row">
-      <div class="col-sm-12">
-        <p>こちらでは、ANCOMの会員登録が行えます。<br>必要事項を以下のフォームに入力してください。</p>
+      <div class="col-sm-6 offset-sm-3">
+        <p>ANCOMの会員登録を行います。<br>必要事項を以下のフォームに入力してください。</p>
+        <a href="../login.php">ログイン画面へ戻る場合はこちら</a>
 
         <hr>
 
@@ -166,7 +160,7 @@ require('../php/signup_bi.php');
             <?php endif; ?>
           </label>
           <div>
-            <input type="text" name="mail_input" style="margin-bottom: 10px" class="form-control" value="<?php print(htmlspecialchars($_POST['mail_input'], ENT_QUOTES)); ?>">
+            <input type="text" name="mail_input" style="margin-bottom: 10px" class="form-control" value="<?php print(htmlspecialchars($_POST['mail_input'], ENT_QUOTES)); ?>" placeholder="メールアドレス入力欄">
             <input type="text" name="mail_check" class="form-control" value="<?php print(htmlspecialchars($_POST['mail_input'], ENT_QUOTES)); ?>" placeholder="確認のためもう一度ご記入ください">
           </div>
         </div>
@@ -185,7 +179,7 @@ require('../php/signup_bi.php');
           <?php endif; ?>
           </label>
           <div>
-            <input type="password" name="pass_input" style="margin-bottom: 10px" class="form-control">
+            <input type="password" name="pass_input" style="margin-bottom: 10px" class="form-control" placeholder="パスワード入力欄">
             <input type="password" name="pass_check" class="form-control" placeholder="確認のためもう一度ご記入ください">
           </div>
         </div>
@@ -307,11 +301,11 @@ require('../php/signup_bi.php');
 
   <hr>
 
-  <div class="container">
-    <footer>
-      <p>&copy; ANACOM</p>
-    </footer>
-  </div>
+  <footer class="container">
+    <div class="row">
+      <div>&emsp;&copy; ALL NATIONS ART COMMUNITY</div>
+    </div>
+  </footer>
 
   <!-- bootstrap4 jquery JavaScript -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

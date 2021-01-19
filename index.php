@@ -26,20 +26,17 @@ require('dbconnect.php');
 
   <link rel="stylesheet" href="css/style.css">
 
+  <style> footer {margin-bottom: 16px} </style>
+  
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="row">
-        <div class="col-sm-6">
-          <h1>Wellcome ANACOM</h1>
-        </div>
-        <div class="col-sm-6 align-right">
-          <a href="">HOMEへ戻る</a>
-        </div>
+  <header class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1>Wellcome! ANACOM</h1>
       </div>
-    </header>
-  </div>
+    </div>
+  </header>
 
   <hr>
 
@@ -148,10 +145,11 @@ require('dbconnect.php');
 
   <hr>
 
-  <div class="container">
-    <footer>
-      <p>&copy; ANACOM</p>
-    </footer>
-  </div>
+  <footer class="container">
+    <div class="row">
+      <div>&emsp;&copy; ALL NATIONS ART COMMUNITY</div>
+    </div>
+  </footer>
+
 </body>
 </html>

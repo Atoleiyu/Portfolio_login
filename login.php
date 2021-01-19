@@ -59,32 +59,29 @@ if ($_POST['mail'] && $_POST['pass']) {
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/login.css">
 
+  <style> footer {margin-bottom: 16px} </style>
+
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="row">
-        <div class="col-sm-6">
-          <h1>Wellcome! ANACOM</h1>
-        </div>
-        <div class="col-sm-6 align-right">
-          <a class="btn btn-success " href="">店舗管理画面へ</a>
-        </div>
+  <header class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1>Wellcome! ANACOM</h1>
       </div>
-    </header>
-  </div>
+    </div>
+  </header>
 
   <hr>
 
   <!-- ログイン画面 -->
-  <div class="row justify-content-center">
+  <div class="container justify-content-center">
     <form action="" method="post" class="row">
-      <div class="content col-sm-12 border rounded">
+      <div class="content col-sm-5 mx-auto border rounded">
 
         <!-- ログイン説明文 -->
         <div class="head">
           <h2>Welcome ANACOM</h2>
-          <p>ログイン用のIDとパスワード入力してください</p>
+          <p>ログインIDと<br>パスワードを入力してください</p>
         </div>
 
         <!-- メールアドレス入力欄 -->
@@ -127,11 +124,11 @@ if ($_POST['mail'] && $_POST['pass']) {
 
   <hr>
 
-  <div class="container">
-    <footer>
-      <p>&copy; ANACOM</p>
-    </footer>
-  </div>
+  <footer class="container">
+    <div class="row">
+      <div>&emsp;&copy; ALL NATIONS ART COMMUNITY</div>
+    </div>
+  </footer>
 
   <!-- bootstrap4 jquery JavaScript -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
