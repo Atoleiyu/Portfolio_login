@@ -82,7 +82,7 @@ if ($_POST) {
   <!-- 必要事項記入欄 -->
   <div class="container">
     <form action="" method="post" class="row">
-      <div class="col-sm-8 mx-auto">
+      <div class="col-sm-5 mx-auto">
         <h3>入力情報確認</h3>
         <p>入力された内容をご確認ください<br></p>
 

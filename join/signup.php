@@ -56,8 +56,8 @@ require('../php/signup_bi.php');
             <?php endif; ?>
           </label>
           <div class="form-inline inputName">
-            <input type="text" id="name" name="lastName" class="form-control" value="<?php print(htmlspecialchars($_POST['lastName'], ENT_QUOTES)); ?>" placeholder="例）山田">
-            <input type="text" id="name" name="firstName" class="form-control" value="<?php print(htmlspecialchars($_POST['firstName'], ENT_QUOTES)); ?>" placeholder="例）太郎">
+            <input type="text" id="name" name="lastName" class="form-control col-5" value="<?php print(htmlspecialchars($_POST['lastName'], ENT_QUOTES)); ?>" placeholder="例）山田">
+            <input type="text" id="name" name="firstName" class="form-control col-5" value="<?php print(htmlspecialchars($_POST['firstName'], ENT_QUOTES)); ?>" placeholder="例）太郎">
           </div>
         </div>
 
@@ -70,8 +70,8 @@ require('../php/signup_bi.php');
             <?php endif; ?>
           </label>
           <div class="form-inline inputName">
-            <input type="text" id="name" name="lastFurigana" class="form-control" value="<?php print(htmlspecialchars($_POST['lastFurigana'], ENT_QUOTES)); ?>" placeholder="例）ヤマダ">
-            <input type="text" id="name" name="firstFurigana" class="form-control" value="<?php print(htmlspecialchars($_POST['firstFurigana'], ENT_QUOTES)); ?>" placeholder="例）タロウ">
+            <input type="text" id="name" name="lastFurigana" class="form-control col-5" value="<?php print(htmlspecialchars($_POST['lastFurigana'], ENT_QUOTES)); ?>" placeholder="例）ヤマダ">
+            <input type="text" id="name" name="firstFurigana" class="form-control col-5" value="<?php print(htmlspecialchars($_POST['firstFurigana'], ENT_QUOTES)); ?>" placeholder="例）タロウ">
           </div>
         </div>
 
@@ -88,9 +88,9 @@ require('../php/signup_bi.php');
           </label>
           <div class="form-inline">
             <!-- ▼郵便番号入力フィールド(3桁+4桁) -->
-            <input type="text" name="zip1" class="form-control" size="4" maxlength="5" value="<?php print(htmlspecialchars($_POST['zip1'], ENT_QUOTES)); ?>" placeholder="3桁">
+            <input type="text" name="zip1" class="form-control col-2" size="4" maxlength="5" value="<?php print(htmlspecialchars($_POST['zip1'], ENT_QUOTES)); ?>" placeholder="3桁">
               －
-            <input type="text" name="zip2" class="form-control" size="5" maxlength="4" onKeyUp="AjaxZip3.zip2addr('zip1', 'zip2', 'address1', 'address2');" value="<?php print(htmlspecialchars($_POST['zip2'], ENT_QUOTES)); ?>" placeholder="4桁">
+            <input type="text" name="zip2" class="form-control col-3" size="5" maxlength="4" onKeyUp="AjaxZip3.zip2addr('zip1', 'zip2', 'address1', 'address2');" value="<?php print(htmlspecialchars($_POST['zip2'], ENT_QUOTES)); ?>" placeholder="4桁">
           </div>
           <!-- 住所入力欄 -->
           <div class="form-group">
@@ -132,7 +132,7 @@ require('../php/signup_bi.php');
               <?php endif; ?>
           </label>
           <div class="form-inline inputTel">
-            <input type="tel" name="tel" autocomplete="tel" class="form-control" value="<?php print(htmlspecialchars($_POST['tel'], ENT_QUOTES)); ?>" placeholder="09012345678">
+            <input type="tel" name="tel" autocomplete="tel" class="form-control" value="<?php print(htmlspecialchars($_POST['tel'], ENT_QUOTES)); ?>" placeholder="TEL">
           </div>
         </div>
 
@@ -197,7 +197,7 @@ require('../php/signup_bi.php');
           <div class="form-inline inputBday">
 
             <!-- 年入力欄 -->
-            <select type="text" id="year" name="year" class="form-control" placeholder="年">
+            <select type="text" id="year" name="year" class="form-control col-3" placeholder="年">
               <option value="">----</option>
               <?php
                 $now_year = date(Y);
@@ -219,7 +219,7 @@ require('../php/signup_bi.php');
             </select>
             &emsp;/&emsp;
             <!-- 月入力欄 -->
-            <select type="text" id="month" name="month" class="form-control" placeholder="年">
+            <select type="text" id="month" name="month" class="form-control col-3" placeholder="年">
             <option value="">--</option>
               <?php
               if (isset($_POST['month'])) {
@@ -241,7 +241,7 @@ require('../php/signup_bi.php');
             </select>
             &emsp;/&emsp;
             <!-- 日入力欄 -->
-            <select id="day" name="day" class="form-control" placeholder="年">
+            <select id="day" name="day" class="form-control col-3" placeholder="年">
             <option value="">--</option>
               <?php
                 if (isset($_POST['day'])) {

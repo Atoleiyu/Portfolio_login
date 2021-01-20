@@ -35,7 +35,7 @@ if ($_POST['mail'] && $_POST['pass']) {
     // 各テーブル取得完了後、情報確認画面へ
     if ($member) {
       $_SESSION = $member;
-      header('Location: index.php');
+      header('Location: menu.php');
       exit();
     }
   } $error['account'] = 'blank';
