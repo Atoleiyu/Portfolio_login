@@ -22,6 +22,7 @@ require('dbconnect.php');
 
   <style>
     footer {margin-bottom: 16px}
+    h4 {margin-top: 16px}
   </style>
 
 </head>
@@ -37,18 +38,31 @@ require('dbconnect.php');
   <hr>
 
   <div class="container justify-content-center">
-    <div class="row">
-      <div class="col-4 mx-auto">
-        <p class="lead">こんにちは！<br><?php echo(htmlspecialchars($_SESSION['name'],ENT_QUOTES)); ?>さん</p>
-        <p>メニューを選択してください</p>
-        <a class="col-12 btn btn-primary btn-block" href="index.php" role="button">会員情報を確認する</a>
-        <a class="col-12 btn btn-secondary btn-block" href="" role="button">会員情報を編集する</a>
-        <!-- スタッフクラスが1以上の場合のみ、店舗管理画面にアクセスできるようにする -->
-        <?php if($_SESSION['staff_class'] > 1):?>
-        <a class="col-12 btn btn-success btn-block" href="" role="button">店舗管理画面へ</a>
-        <?php endif; ?>
+    <form action="" method="post" class="row">
+      <div class="col-md-5 col-xl- mx-auto border rounded">
+
+        <div class="head">
+          <h4>ようこそ<br><?php echo(htmlspecialchars($_SESSION['name'],ENT_QUOTES)); ?>さん</h4>
+          <p>メニューを選択してください</p>
+        </div>
+
+        <div class="form-group">
+          <a class="col-12 btn btn-primary btn-block" href="index.php" role="button">会員情報を確認する</a>
+          <a class="col-12 btn btn-secondary btn-block" href="" role="button">会員情報を編集する</a>
+          <!-- スタッフクラスが1以上の場合のみ、店舗管理画面にアクセスできるようにする -->
+          <?php if($_SESSION['staff_class'] > 1):?>
+          <a class="col-12 btn btn-success btn-block" href="" role="button">店舗管理画面へ</a>
+          <?php endif; ?>
+        </div>
+
+        <hr class="border" style="margin-bottom: 0px">
+
+        <div class="form-group mx-auto" style="margin:8px 0;">
+          <a class="col-12 btn btn-link" href="login.php" role="button">ログアウトはこちら</a>
+        </div>
+
       </div>
-    </div>
+    </form>
   </div>
 
   <hr>

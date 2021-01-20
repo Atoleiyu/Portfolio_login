@@ -131,9 +131,9 @@ require('dbconnect.php');
         <hr>
 
         <div>
-          <a type="submit" class="btn btn-warning" href="login.php">ログイン画面へ戻る</a>
+          <a type="submit" class="btn btn-warning" href="menu.php">メニュー画面へ戻る</a>
           /
-          <button type="submit" name="action" class="btn btn-primary">登録する</button>
+          <a type="submit" name="action" class="btn btn-danger" href="">退会する</a>
         </div>
 
       </div>
