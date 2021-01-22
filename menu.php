@@ -39,7 +39,7 @@ require('dbconnect.php');
 
   <div class="container justify-content-center">
     <form action="" method="post" class="row">
-      <div class="col-md-5 col-xl- mx-auto border rounded">
+      <div class="col-md-9 col-lg-5 mx-auto border rounded">
 
         <div class="head">
           <h4>ようこそ<br><?php echo(htmlspecialchars($_SESSION['name'],ENT_QUOTES)); ?>さん</h4>
