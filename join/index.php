@@ -134,7 +134,7 @@ if (empty($error) && !empty($_POST)) {
     <header>
       <div class="row">
         <div class="col-sm-6">
-          <h1>Wellcome ANACOM</h1>
+          <h1>Wellcome! Portfolio</h1>
         </div>
         <div class="col-sm-6 align-right">
           <a href="../login.php">ログイン画面へ戻る</a>
@@ -150,7 +150,7 @@ if (empty($error) && !empty($_POST)) {
     <!-- <form action="https://book.h2o-space.com/html/form.php" method="post" class="row"> -->
     <form action="" method="post" class="row">
       <div class="col-sm-8 col-sm-offset-2">
-        <p>こちらでは、ANCOMの会員登録が行えます。<br>必要事項を以下のフォームに入力してください。</p>
+        <p>こちらでは、Café Portfolioの会員登録が行えます。<br>必要事項を以下のフォームに入力してください。</p>
 
         <hr>
 
@@ -371,7 +371,7 @@ if (empty($error) && !empty($_POST)) {
 
   <div class="container">
     <footer>
-      <p>&copy; ANACOM</p>
+      <p>&emsp;&copy; Café Portfolio</p>
     </footer>
   </div>
 </body>

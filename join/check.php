@@ -72,7 +72,7 @@ if ($_POST) {
   <header class="container">
     <div class="row">
       <div class="col-sm-6">
-        <h1>Wellcome! ANACOM</h1>
+        <h1>Wellcome! Portfolio</h1>
       </div>
     </div>
   </header>
@@ -186,7 +186,7 @@ if ($_POST) {
 
   <footer class="container">
     <div class="row">
-      <div>&emsp;&copy; ALL NATIONS ART COMMUNITY</div>
+      <div>&emsp;&copy; Café Portfolio</div>
     </div>
   </footer>
 

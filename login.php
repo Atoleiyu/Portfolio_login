@@ -66,7 +66,7 @@ if ($_POST['mail'] && $_POST['pass']) {
   <header class="container">
     <div class="row">
       <div class="col-sm-6">
-        <h1>Wellcome! ANACOM</h1>
+        <h1>Wellcome! Portfolio</h1>
       </div>
     </div>
   </header>
@@ -80,7 +80,7 @@ if ($_POST['mail'] && $_POST['pass']) {
 
         <!-- ログイン説明文 -->
         <div class="head">
-          <h2>Welcome ANACOM</h2>
+          <h2>Welcome PORTFOLIO</h2>
           <p>ログインIDと<br>パスワードを入力してください</p>
         </div>
 
@@ -126,7 +126,7 @@ if ($_POST['mail'] && $_POST['pass']) {
 
   <footer class="container">
     <div class="row">
-      <div>&emsp;&copy; ALL NATIONS ART COMMUNITY</div>
+      <div>&emsp;&copy; Café Portfolio</div>
     </div>
   </footer>
 

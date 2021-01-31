@@ -23,13 +23,13 @@ if (isset($_POST['exit'])) {
   <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 
   <style> footer {margin-bottom: 16px} </style>
-  
+
 </head>
 <body>
   <header class="container">
     <div class="row">
       <div class="col-sm-6">
-        <h1>Wellcome! ANACOM</h1>
+        <h1>Wellcome! Portfolio</h1>
       </div>
     </div>
   </header>
@@ -49,7 +49,7 @@ if (isset($_POST['exit'])) {
 
   <footer class="container">
     <div class="row">
-      <div>&emsp;&copy; ALL NATIONS ART COMMUNITY</div>
+      <div>&emsp;&copy; Café Portfolio</div>
     </div>
   </footer>
 

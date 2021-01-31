@@ -30,7 +30,7 @@ require('../php/signup_bi.php');
   <header class="container">
     <div class="row">
       <div class="col-sm-6">
-        <h1>Wellcome! ANACOM</h1>
+        <h1>Wellcome! Portfolio</h1>
       </div>
     </div>
   </header>
@@ -41,7 +41,7 @@ require('../php/signup_bi.php');
   <div class="container justify-content-center">
     <form action="" method="post" class="row">
       <div class="col-sm-6 offset-sm-3">
-        <p>ANCOMの会員登録を行います。<br>必要事項を以下のフォームに入力してください。</p>
+        <p>Café Portfolioの会員登録を行います。<br>必要事項を以下のフォームに入力してください。</p>
         <a href="../login.php">ログイン画面へ戻る場合はこちら</a>
 
         <hr>
@@ -303,7 +303,7 @@ require('../php/signup_bi.php');
 
   <footer class="container">
     <div class="row">
-      <div>&emsp;&copy; ALL NATIONS ART COMMUNITY</div>
+      <div>&emsp;&copy; Café Portfolio</div>
     </div>
   </footer>
 
