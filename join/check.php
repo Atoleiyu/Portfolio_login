@@ -144,7 +144,7 @@ if ($_POST) {
         <div class="form-group">
           <label>パスワード</label>
           <dd>
-            <?php echo (htmlspecialchars($_SESSION['join']['pass'],ENT_QUOTES)); ?>
+            <?php echo str_repeat("*", mb_strlen($_SESSION['join']['pass'], "UTF8")); ?>
           </dd>
         </div>
 
