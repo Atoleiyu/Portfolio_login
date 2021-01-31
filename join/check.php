@@ -72,7 +72,7 @@ if ($_POST) {
   <header class="container">
     <div class="row">
       <div class="col-sm-6">
-        <h1><a href="login.php" style="font-size: 18px;color: rgb(245, 110, 130)">Wellcome! Portfolio</a></h1>
+        <h1><a href="../login.php" style="font-size: 18px;color: rgb(245, 110, 130)">Wellcome! Portfolio</a></h1>
       </div>
     </div>
   </header>
@@ -136,7 +136,11 @@ if ($_POST) {
         <div class="form-group">
           <label>メールアドレス</label>
           <dd>
-            <?php echo (htmlspecialchars($_SESSION['join']['mail'],ENT_QUOTES)); ?>
+            <?php
+              // メールアドレスを自動で半角へ変換
+              $_SESSION['join']['mail'] = mb_convert_kana($_SESSION['join']['mail'], "a");
+              echo (htmlspecialchars($_SESSION['join']['mail'],ENT_QUOTES));
+            ?>
           </dd>
         </div>
 

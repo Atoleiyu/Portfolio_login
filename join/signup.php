@@ -30,7 +30,7 @@ require('../php/signup_bi.php');
   <header class="container">
     <div class="row">
       <div class="col-sm-6">
-        <h1><a href="login.php" style="font-size: 18px;color: rgb(245, 110, 130)">Wellcome! Portfolio</a></h1>
+        <h1><a href="../login.php" style="font-size: 18px;color: rgb(245, 110, 130)">Wellcome! Portfolio</a></h1>
       </div>
     </div>
   </header>
