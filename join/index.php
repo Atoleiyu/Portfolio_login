@@ -134,7 +134,7 @@ if (empty($error) && !empty($_POST)) {
     <header>
       <div class="row">
         <div class="col-sm-6">
-          <h1>Wellcome! Portfolio</h1>
+          <h1><a href="login.php" style="font-size: 18px;color: rgb(245, 110, 130)">Wellcome! Portfolio</a></h1>
         </div>
         <div class="col-sm-6 align-right">
           <a href="../login.php">ログイン画面へ戻る</a>

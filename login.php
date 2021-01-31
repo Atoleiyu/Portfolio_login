@@ -66,7 +66,7 @@ if ($_POST['mail'] && $_POST['pass']) {
   <header class="container">
     <div class="row">
       <div class="col-sm-6">
-        <h1>Wellcome! Portfolio</h1>
+        <h1><a href="login.php" style="font-size: 18px;color: rgb(245, 110, 130)">Wellcome! Portfolio</a></h1>
       </div>
     </div>
   </header>
@@ -80,7 +80,7 @@ if ($_POST['mail'] && $_POST['pass']) {
 
         <!-- ログイン説明文 -->
         <div class="head">
-          <h2>Welcome PORTFOLIO</h2>
+          <h2>Welcome! PORTFOLIO</h2>
           <p>ログインIDと<br>パスワードを入力してください</p>
         </div>
 
