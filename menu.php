@@ -43,7 +43,8 @@ require('dbconnect.php');
 
         <div class="head">
           <h4>ようこそ<br><?php echo(htmlspecialchars($_SESSION['name'],ENT_QUOTES)); ?>さん</h4>
-          <p>メニューを選択してください</p>
+          <p style="margin-top:16px">会員ID：NO.<?php echo(htmlspecialchars($_SESSION['id'],ENT_QUOTES)); ?></p>
+          <p>会員期限：<?php echo(htmlspecialchars($_SESSION['updated_at'],ENT_QUOTES)); ?></p>
         </div>
 
         <div class="form-group">
