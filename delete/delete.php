@@ -2,17 +2,19 @@
 session_start();
 require('../dbconnect.php');
 
-if ($_POST['delete']) {
-  $members =  $db->prepare('DELETE FROM members WHERE id=?');
-  $members->execute(array(
+if ($_POST) {
+  $delete =  $db->prepare('DELETE FROM members WHERE id=?');
+  $delete->execute(array(
     $_SESSION['id'],
   ));
-  $account =  $db->prepare('DELETE FROM account WHERE id=?');
-  $account->execute(array(
+
+  $delete =  $db->prepare('DELETE FROM account WHERE id=?');
+  $delete->execute(array(
     $_SESSION['id'],
   ));
-  $address =  $db->prepare('DELETE FROM address WHERE id=?');
-  $address->execute(array(
+
+  $delete =  $db->prepare('DELETE FROM address WHERE id=?');
+  $delete->execute(array(
     $_SESSION['id'],
   ));
 
