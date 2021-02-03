@@ -133,7 +133,7 @@ require('dbconnect.php');
         <div>
           <a type="submit" class="btn btn-warning" href="menu.php">メニュー画面へ戻る</a>
           /
-          <a type="submit" name="action" class="btn btn-danger" href="">退会する</a>
+          <a type="submit" name="action" class="btn btn-danger" href="delete/delete.php">退会する</a>
         </div>
 
       </div>
