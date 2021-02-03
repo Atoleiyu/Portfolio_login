@@ -130,6 +130,7 @@ require('dbconnect.php');
 
         <hr>
 
+        <!-- ページ移動用ボタン -->
         <div>
           <a type="submit" class="btn btn-warning" href="menu.php">メニュー画面へ戻る</a>
           /
