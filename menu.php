@@ -49,7 +49,7 @@ require('dbconnect.php');
 
         <div class="form-group">
           <a class="col-12 btn btn-primary btn-block" href="index.php" role="button">会員情報を確認する</a>
-          <a class="col-12 btn btn-secondary btn-block" href="edit.php" role="button">会員情報を編集する</a>
+          <a class="col-12 btn btn-secondary btn-block" href="edit/edit.php" role="button">会員情報を編集する</a>
           <!-- スタッフクラスが1以上の場合のみ、店舗管理画面にアクセスできるようにする -->
           <?php if($_SESSION['staff_class'] > 1):?>
           <a class="col-12 btn btn-success btn-block" href="" role="button">店舗管理画面へ</a>
