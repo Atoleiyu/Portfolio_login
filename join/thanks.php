@@ -49,7 +49,7 @@ if (isset($_POST['exit'])) {
 
   <footer class="container">
     <div class="row">
-      <div>&emsp;&copy; Café Portfolio</div>
+      <div>&emsp;&copy; Café Portfolio </div>
     </div>
   </footer>
 
